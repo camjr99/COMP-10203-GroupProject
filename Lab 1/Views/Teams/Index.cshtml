@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Lab_1.Models.Team>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamName)
+            </th>
+            <th>
+                Wins
+            </th>
+            <th>
+                Losses
+            </th>
+            <th>
+                Ties
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstablishedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @if (item.TeamPicture != null)
+                {
+                    <img id="picture" style="width: 125px; height: 125px; object-fit: cover;" src="data:image/*;base64,@(Convert.ToBase64String(item.TeamPicture))" />
+                }
+                else
+                {
+                    <img id="picture" style="width: 125px; height: 125px; object-fit: cover;" src="" />
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Wins)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Losses)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ties)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstablishedDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+

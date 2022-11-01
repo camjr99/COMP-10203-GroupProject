@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Lab_1.Models.Match>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamOne)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamOneScore)
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamTwo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamTwoScore)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MatchDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @if (item.TeamOne.TeamPicture != null)
+                {
+                    <img id="picture" style="width: 125px; height: 125px; object-fit: cover;" src="data:image/*;base64,@(Convert.ToBase64String(item.TeamOne.TeamPicture))" />
+                }
+                else
+                {
+                    <img id="picture" style="width: 125px; height: 125px; object-fit: cover;" src="" />
+                }
+            </td>
+            <td>
+                <a asp-controller="Teams" asp-action="Details" asp-route-id = "@item.TeamOneID">@Html.DisplayFor(modelItem => item.TeamOne.TeamName)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamOneScore)
+            </td>
+            <td>
+                @if (item.TeamOne.TeamPicture != null)
+                {
+                    <img id="picture" style="width: 125px; height: 125px; object-fit: cover;" src="data:image/*;base64,@(Convert.ToBase64String(item.TeamTwo.TeamPicture))" />
+                }
+                else
+                {
+                    <img id="picture" style="width: 125px; height: 125px; object-fit: cover;" src="" />
+                }
+            </td>
+            <td>
+                <a asp-controller="Teams" asp-action="Details" asp-route-id = "@item.TeamTwoID">@Html.DisplayFor(modelItem => item.TeamTwo.TeamName)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamTwoScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

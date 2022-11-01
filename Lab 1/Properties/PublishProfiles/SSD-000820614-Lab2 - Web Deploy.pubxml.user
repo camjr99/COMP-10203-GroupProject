@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAGpO5cyeYh0Kp2ZEvM16ejQAAAAACAAAAAAAQZgAAAAEAACAAAADb01KX3lgQGcwWGyzlsEVO0kUhaWS1rAeNwkdvgyyDpAAAAAAOgAAAAAIAACAAAACvX+RK+JOAg5axSJjNf+NdtquDFd7m/wZl+cUWQcao1oAAAAB/riBJMPDgFzKci5jGXPke0xewvxxLr30aM+4HIOR91Y8jdBiXMU7ypzHbuIcx6hJGi2YuuC5uE3BKE+O9HiTMMN2uMp9HXCIeKYxuDMt7NvwdPoYmL6kW9BW1zHjkcCu34M0JxcvEQsbjww7Z9Lr6qZ0qF+vcUC3ktwe3Q/8dtkAAAACkcBRLDlmN5Nx2hYScSV4aXWPEp08hCMWZxr0idzNUCUXfQBolbh5FOdyEV+Yy0p2Gzk8xh8sczVrDA5gZsvtB</EncryptedPassword>
+    <History>True|2022-10-09T22:04:13.1402406Z;True|2022-10-09T17:51:48.3338231-04:00;True|2022-10-09T17:49:19.6042041-04:00;True|2022-10-09T17:41:21.2925494-04:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=tcp:ssd000820614.database.windows.net,1433%3bInitial Catalog=ssd_000820614_lab2%3bUser Id=cr000820614%40ssd000820614%3bPassword=Password!1</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="Lab_1.Data.ApplicationDbContext">
+      <Value>Data Source=tcp:ssd000820614.database.windows.net,1433%3bInitial Catalog=ssd_000820614_lab2%3bUser Id=cr000820614%40ssd000820614%3bPassword=Password!1</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

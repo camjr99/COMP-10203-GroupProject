@@ -1,0 +1,62 @@
+﻿@model Lab_1.Models.Team
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Team</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TeamName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TeamName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class= "col-sm-2">
+            Wins - Losses - Ties
+        </dt>
+        <dd class= "col-sm-10">
+            @Html.DisplayFor(model => model.Wins) - @Html.DisplayFor(model => model.Losses) - @Html.DisplayFor(model => model.Ties)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EstablishedDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EstablishedDate)
+        </dd>
+    </dl>
+</div>
+<button type="button" class="btn btn-dark" id="listButton">List Players</button>
+<div id= "playersList" style="display:none">
+    <ul class="list-group"
+    @foreach (var person in ViewData["players"] as IList<ApplicationUser>)
+    {
+        <li class="list-group-item">@person.FirstName, @person.LastName</li>
+    }
+    </ul>
+</div>
+<div>
+    @if (Model.TeamPicture != null)
+    {
+        <img id="picture" style="width: 250px; height: 250px; object-fit: cover; padding-top:10px" src="data:image/*;base64,@(Convert.ToBase64String(Model.TeamPicture))" />
+    }
+    else
+    {
+        <img id="picture" style="width: 250px; height: 250px; object-fit: cover; padding-top:10px" src="" />
+    }
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

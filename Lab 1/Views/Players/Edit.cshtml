@@ -1,0 +1,27 @@
+﻿@using Lab_1.Models
+@model Lab_1.Models.PlayerViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<form method="post">
+    <div class="card">
+        <div class="card-header">
+            <h2>Manage Team for @Model.FirstName @Model.LastName (@Model.Email)</h2>
+        </div>
+        <div class="card-body">
+            <label asp-for="TeamId" class="control-label"></label>
+            <select asp-for="TeamId" class="form-control" asp-items="ViewBag.Teams"></select>
+        </div>
+        <div class="card-footer">
+            <input type="submit" value="Update" class="btn btn-primary">
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
